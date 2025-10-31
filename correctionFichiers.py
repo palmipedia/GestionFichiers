@@ -1,22 +1,40 @@
-#Creation + Ecriture
-f = open("test.txt", "w")
-contenu = """ Ceci est un contenu d'un fichier.
-              Il est utilisé pour les besoins de test.
-              Il peut être effacé sans demander l'accord
-              de son auteur.
-          """
-f.write(contenu)
-f.close()
+import os
 
-#Lecture
-f = open("test.txt", "r")
-contenu = f.readlines()
-print(contenu)
-f.close()
+def compterOccurences(fichier:str, texte:str) -> int:
+    if not os.path.exists(fichier):
+        return -1
+    if not os.path.isfile(fichier):
+        return 0
+    with open(fichier, "r", encoding="utf-8") as f:
+        contenu = f.read()
+        return contenu.count(texte)
 
-#Lecture
-f = open("test.txt", "a")
-contenu = """Ceci est la fin du contenu.
-          """
-f.write(contenu)
-f.close()
+def compterLignes(fichier:str) -> int:
+    if not os.path.isfile(fichier):
+        return 0
+    with open(fichier, "r", encoding="utf-8") as f:
+        contenu = f.readlines()
+        return len(contenu)
+
+def compterMots(fichier:str) -> int:
+    if not os.path.isfile(fichier):
+        return 0
+    with open(fichier, "r", encoding="utf-8") as f:
+        contenu = f.read()
+        listeMots = contenu.split()
+        return len(listeMots)
+
+def compterCaracteres(fichier:str) -> int:
+    if not os.path.isfile(fichier):
+        return 0
+    with open(fichier, "r", encoding="utf-8") as f:
+        contenu = f.read()
+        return len(contenu)
+
+def compterMiniscules(fichier:str) -> int:
+    if not os.path.isfile(fichier):
+        return 0
+    with open(fichier, "r", encoding="utf-8") as f:
+        return [mot for mot in f.read().split() if mot.islower() and len(mot)>1]
+
+

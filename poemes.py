@@ -27,16 +27,24 @@ with open("data/poeme2.txt", "r", encoding="utf-8") as f:
 
 print(contenu)"""
 
-
-lettre = input("\nLettre à trouver ? ")
-
-with open("data/poeme.txt", "r") as f:
+with open("data/poeme.txt", "r", encoding="utf-8") as f:
     texte=f.read()
+
+"""lettre = input("\nLettre à trouver ? ")
 
 occurrence = compterOccurrences(texte, lettre)
 
-print(f"\nIl y a {occurrence} '{lettre}'")
+print(f"\nIl y a {occurrence} '{lettre}'")"""
 
 caracteres = compterCaracteres(texte)
 
 print(f"\nIl y a {caracteres} caractères")
+
+mots = compterMots(texte)
+
+print (f"\nIl y a {mots} mots")
+
+lignes = compterLignes(texte)
+
+print (f"\nIl y a {lignes}")
+
